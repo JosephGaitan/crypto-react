@@ -1,9 +1,11 @@
+import { useState } from "react"
 import styled from "@emotion/styled"
 import useSelectMonedas from "../hooks/useSelectMonedas"
 import {monedas} from "../data/monedas" 
 
 const InputSubmit = styled.input`
     background-color: #9497ff;
+    margin-top: 30px;
     border :none;
     width: 100%;
     padding: 10px;
@@ -22,12 +24,13 @@ const InputSubmit = styled.input`
 
 const Formulario = () => {
 
-    const [SelecMonedas] = useSelectMonedas('Choose your local currency', monedas);
+
+    const [moneda, SelecMonedas] = useSelectMonedas('Choose your local currency', monedas);
     
   return (
     <form>
         <SelecMonedas />
-        
+            {moneda}
         <InputSubmit 
             type='submit'
             value='quote now'
